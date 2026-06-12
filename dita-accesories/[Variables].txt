@@ -1,0 +1,2 @@
+[Variables]
+Color=193, 154, 107

@@ -1,0 +1,133 @@
+1.Users
+-id (Primary Key, Auto-Increment)
+-role_id
+-name (String)
+-email (String, Unique)
+-email_verified
+-phone_number
+-address
+-password (Hashed String)
+
+2.Role
+-id (Primary Key, Auto-Increment)
+-name (String)
+
+3.Producs
+-id (Primary Key, Auto-Increment)
+-name (String)
+-description (Text)
+-price (Decimal)
+-material (Enum: 'gold', 'silver')
+-stock (Integer)
+-image_url (String)
+-category_id (Foreign Key to Categories)
+-discount
+
+4.Images
+-id
+-image_path
+-product_id
+
+
+5.Orders
+-id (Primary Key, Auto-Increment)
+-user_id (Foreign Key to Users)
+-order_date (Datetime)
+-status (Enum: 'pending', 'completed', 'cancelled')
+-country
+-city
+-delivery_address
+-second_devlivery_address
+-phone_number
+-description
+-payed (Boolean)
+-card_brand
+-card_type
+-card_last_four_numbers
+-payment_type (Enum: 'online' , 'cash')
+
+6.OrderDetails
+-id (Primary Key, Auto-Increment)
+-order_id (Foreign Key to Orders)
+-product_id (Foreign Key to Products)
+-quantity (Integer)
+-subtotal (Decimal)
+
+7.order_products
+-id
+-product_id
+-product_price
+
+8.Categories
+-id (Primary Key, Auto-Increment)
+-name (String)
+-description (Text, Optional)
+
+9.Reviews
+-id (Primary Key, Auto-Increment)
+-product_id (Foreign Key to Products)
+-user_id (Foreign Key to Users)
+-rating (Integer, 1-5)
+-comment (Text)
+-created_at (Datetime)
+
+
+10.Shipping
+-id (Primary Key, Auto-Increment)
+-order_id (Foreign Key to Orders)
+-address_line1 (String)
+-address_line2 (String, Optional)
+-city (String)
+-state (String)
+-zip_code (String)
+-country (String)
+-shipping_status (Enum: 'pending', 'shipped', 'delivered', 'returned')
+-shipping_date (Datetime, Optional)
+
+
+11.Return Requests
+█ To handle return and refund requests.
+-id (Primary Key, Auto-Increment)
+-order_id (Foreign Key to Orders)
+-reason (Text)
+-status (Enum: 'pending', 'approved', 'rejected', 'completed')
+-requested_date (Datetime)
+-processed_date (Datetime, Optional)
+
+
+12.Colors
+-id
+-name
+-color_hx
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
